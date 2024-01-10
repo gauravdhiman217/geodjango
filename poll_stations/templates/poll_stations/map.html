@@ -18,17 +18,13 @@
 			height: 100%;
 			margin: 0;
 		}
-        h1 {
-            text-align: center;
-        }
+        
 		#map {
             position: block;
             margin: auto;
-			height: 70vh;
-			width: 70%;
-            /* margin-top: 1%; */
-            border: 5px;
-            border-style: groove;
+			height: 100%;
+			width: 100%;
+
 			/* max-width: 100%;
 			max-height: 100%; */
 		}
@@ -39,17 +35,18 @@
 
 <!-- Body start  -->
 {% block body %}
-    <h1>Map of India with the location point of Pollution Moniter Stations</h1>
+        {{ station}}
         <div id="map"></div>
         <script>
-
-            const map = L.map('map').setView([20.5937, 78.9629], 4);
+            // let raw_data = '{{ station}}';
+            // let data = JSON.parse(raw_data);
+            const map = L.map('map').setView([20.5937, 78.9629], 5);
 
             const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 maxZoom: 19,
                 attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             }).addTo(map);
-
+            // L.geoJSON(data).addTo(map);
         </script>
 
 {% endblock %}
