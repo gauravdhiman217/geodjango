@@ -6,7 +6,6 @@ def stations(request)->HttpResponse:
     """
     this is demo function
     """
-    station = serialize("geojson", Stations.objects.all()[:10])
-    print(station)
+    station = serialize("geojson", Stations.objects.all())
     context = {'station':station}
     return render(request=request, template_name='poll_stations/map.html', context=context)

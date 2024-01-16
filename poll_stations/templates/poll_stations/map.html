@@ -35,18 +35,19 @@
 
 <!-- Body start  -->
 {% block body %}
-        {{ station}}
+        <!-- {{ station}} -->
         <div id="map"></div>
         <script>
             // let raw_data = '{{ station}}';
             // let data = JSON.parse(raw_data);
             const map = L.map('map').setView([20.5937, 78.9629], 5);
-
             const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 maxZoom: 19,
                 attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             }).addTo(map);
-            // L.geoJSON(data).addTo(map);
+            let raw_data=  '{{ station|escapejs }}';
+            let pointFeatures = JSON.parse(raw_data);
+            L.geoJSON(pointFeatures).addTo(map);
         </script>
 
 {% endblock %}
