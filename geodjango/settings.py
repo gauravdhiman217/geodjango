@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.gis',
-    'poll_stations.apps.PollStationsConfig'
+    'poll_stations.apps.PollStationsConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
