@@ -37,4 +37,4 @@ class StationApi(generics.ListAPIView):
     #     # return Response(station, status=HTTP_200_OK)
         
     queryset = Stations.objects.all()
-    serializer_class = StationSerializer
+    serializer_class = StationDataSerializer

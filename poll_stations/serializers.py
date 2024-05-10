@@ -23,10 +23,14 @@ class StationDataSerializer(serializers.ModelSerializer):
     class Meta:
         model = Stations
         fields = [
+            'id',
+            'geom',
             'country',
             'state',
             'city',
             'station',
+            'lon',
+            'lat',
             'last_updated_date',
             'pollutants',
         ]
@@ -40,6 +44,7 @@ class StationDataSerializer(serializers.ModelSerializer):
             data['max'] = row['pollutant_max']
             data['avg'] = row['pollutant_avg']
             output.append(data)
+            output = sorted(output, key=lambda x:x['id'])
         return serializers.ListField().to_representation(output)
     
     def get_last_updated_date(self, obj):
