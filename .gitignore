@@ -160,3 +160,4 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 poll_stations/static/poll_stations/js/script_copy.js
+poll_stations/static/poll_stations/images/hero1.jpg

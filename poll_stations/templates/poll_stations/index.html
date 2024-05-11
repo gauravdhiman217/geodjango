@@ -1,24 +1,26 @@
 {% extends 'poll_stations/main.html' %}
 {% block title %}Welcome Page {% endblock %}
 {% block header %}
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+{% load static %}
+    <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
     <style>
     .charcter{
         text-transform: uppercase;
         text-align: center;
         background-image: linear-gradient(
             -225deg,
-            #231557 0%,
-            #44107a 29%,
+            #78f1b5 0%,
+            #f0ad30 29%,
             #ff1361 67%,
             #fff800 100%
         );
+
         background-size: auto auto;
         background-clip: border-box;
         background-size: 200% auto;
         color: #fff;
         background-clip: text;
-        text-fill-color: transparent;
+        /* text-fill-color: transparent; */
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         animation: textclip 2s linear infinite;
@@ -30,11 +32,29 @@
     background-position: 200% center;
   }
 }
-        
+.hero-section {
+        background-image: url("{% static 'poll_stations/images/hero.jpg' %}");
+        background-size: cover;
+        background-position: center;
+        height: 100vh; /* Set the height to full viewport height */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
 </style>
 {% endblock %}
 {% block body %}
-<div >
-    <h1 class="charcter"><a href="{% url 'poll_stations:stations' %}">Click on the link to visit the Map.</a></h1>
+<div class="hero-section">
+  <div class="p-5 text-center bg-image hero-image h-100">
+    <div class="d-flex justify-content-center align-items-center h-100">
+      <div class="text-white">
+        <h1 class="mb-3">Real Time Pollution Display System</h1>
+        <h4 class="mb-3">Map View of Real time Pollution Monitering System. Powered By Govt Of india Data API.</h4>
+        <a data-mdb-ripple-init class="charcter " href="{% url 'poll_stations:stations' %}" role="button">Jump To The Map View.</a>
+      </div>
+  </div>
 </div>
+</div>
+
 {% endblock %}
